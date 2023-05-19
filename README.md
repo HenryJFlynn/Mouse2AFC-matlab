@@ -49,5 +49,20 @@ Then open matlab → go to SetPath (in the environment panel)→
 
 Open Arduino software and upload the files from here: https://github.com/sanworks/Bpod_StateMachine_Firmware/tree/v22/Preconfigured/StateMachine-Bpod0_5
 
+### Required User Changes
+#### Mouse2AFC: Line 63
+```MATLAB
+createMMFile('c:\Bpoduser\', 'mmap_matlab_randomdot.dat', file_size);
+```
+Change `c:\Bpoduser\` to reflect your system path to `mmap_matlab_randomdot.dat`
+
+#### BpodObject: Line 116
+
+```Matlab 
+ obj.Path.LocalDir = 'C:\BpodUser'; %fullfile(obj.Path.ParentDir, 'BpodUser');
+```
+Delete `C:\BpodUser' and uncomment the rest of the line
+ 
+  
 #### These instructions are a revised version of the ones found here: https://github.com/HenryJFlynn/mouse2afc/issues/5
-#### For any problem see https://github.com/HenryJFlynn/mouse2afc/issues/2 
+#### For any problems, first see https://github.com/HenryJFlynn/mouse2afc/issues/2 
